@@ -1,5 +1,5 @@
 import React from "react";
-import GetReview from "../Components/GetReview";
+import GetReview from "../Components/Review";
 import Header from "../Components/Header";
 import NavBar from "../Components/NavBar";
 

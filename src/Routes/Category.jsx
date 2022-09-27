@@ -1,5 +1,5 @@
 import React from "react";
-import GetCategoryReviews from "../Components/GetCategoryReviews";
+import GetCategoryReviews from "../Components/CategoryReviews";
 import Header from "../Components/Header";
 import NavBar from "../Components/NavBar";
 

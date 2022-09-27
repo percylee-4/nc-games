@@ -1,5 +1,5 @@
 import React from "react";
-import GetAllCategories from "../Components/GetAllCategories";
+import GetAllCategories from "../Components/Categories";
 import Header from "../Components/Header";
 import NavBar from "../Components/NavBar";
 

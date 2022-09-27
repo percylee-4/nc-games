@@ -1,20 +1,17 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { FetchAllCategoryReviews } from "./Api";
+import { useParams } from "react-router-dom";
+import { fetchAllReviews } from "./Api";
 import "../StyleSheets/GetCategoryReviews.css";
+import ReviewCard from "./ReviewCard";
 
 const GetCategoryReviews = () => {
   const [reviews, setReviews] = useState([]);
   const category = useParams();
 
   useEffect(() => {
-    FetchAllCategoryReviews(category.slug).then((data) =>
-      setReviews(data.reviews)
-    );
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    fetchAllReviews(category.slug).then((data) => setReviews(data.reviews));
+  }, [category.slug]);
 
   return (
     <div className="categoryreviews">
@@ -23,12 +20,9 @@ const GetCategoryReviews = () => {
         <ul className="categoryreviewslist">
           {reviews.map((review, index) => {
             return (
-              <Link to={`/Review/${review.review_id}`}>
-                <li key={index} className="categoryli">
-                  {" "}
-                  "{review.title}" <br /> {review.owner}
-                </li>{" "}
-              </Link>
+              <li key={index}>
+                <ReviewCard review={review} />
+              </li>
             );
           })}
         </ul>

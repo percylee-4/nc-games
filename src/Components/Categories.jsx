@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { FetchAllCategories } from "./Api";
+import { fetchAllCategories } from "./Api";
 import "../StyleSheets/GetAllCategories.css";
 
 const GetAllCategories = () => {
@@ -10,7 +10,7 @@ const GetAllCategories = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    FetchAllCategories().then((data) => {
+    fetchAllCategories().then((data) => {
       setIsLoading(false);
       setCategories(data.categories);
     }, []);
@@ -30,11 +30,9 @@ const GetAllCategories = () => {
               key={index}
               className="category"
             >
-              {" "}
               <li>
-                {" "}
-                {category.slug} <br /> {category.description}{" "}
-              </li>{" "}
+                {category.slug} <br /> {category.description}
+              </li>
             </Link>
           );
         })}
