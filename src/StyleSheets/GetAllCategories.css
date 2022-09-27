@@ -1,0 +1,23 @@
+
+.categorysection {
+    display: flex;
+    justify-content: center;
+ 
+
+}
+
+
+
+.categorieslist {
+    display: inline-flex;
+    flex-direction: column;
+    list-style-type: none;
+    justify-content: center;
+}
+
+.category {
+    text-align: center;
+    margin: 20px;
+    margin-left: 0;
+
+}

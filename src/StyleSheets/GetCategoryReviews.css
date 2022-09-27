@@ -1,0 +1,20 @@
+.categoryreviews {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.categoryheading {
+    text-align: center;
+}
+
+.categoryreviewslist {
+    list-style-type: none;
+}
+
+.categoryli {
+    margin: 20px;
+    margin-left: 0;
+    text-align: center;
+}
