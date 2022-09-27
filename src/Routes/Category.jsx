@@ -4,14 +4,13 @@ import Header from "../Components/Header";
 import NavBar from "../Components/NavBar";
 
 const Category = () => {
-    return (
-        <div> 
-            <Header />
-            <NavBar />
-            <GetCategoryReviews />
-
-        </div>
-    )
-}
+  return (
+    <div>
+      <Header />
+      <NavBar />
+      <GetCategoryReviews />
+    </div>
+  );
+};
 
 export default Category;
