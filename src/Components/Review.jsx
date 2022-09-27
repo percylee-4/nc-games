@@ -1,13 +1,14 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { FetchSingleReview } from "./Api";
+import { fetchSingleReview } from "./Api";
+import ReviewCard from "./ReviewCard";
 
 const GetReview = () => {
   const [review, setReview] = useState([]);
   const id = useParams();
   useEffect(() => {
-    FetchSingleReview(id.review_id).then((data) => {
+    fetchSingleReview(id.review_id).then((data) => {
       setReview([data.review]);
     });
   }, []);
@@ -18,9 +19,7 @@ const GetReview = () => {
         {review.map((review, index) => {
           return (
             <li className="allreviewslistitems" key={index}>
-              "{review.title}" <br />
-              Author: {review.owner} <br />
-              comments: {review.comment_count} <br /> Votes: {review.votes}{" "}
+              <ReviewCard review={review} />
             </li>
           );
         })}
