@@ -4,14 +4,13 @@ import Header from "../Components/Header";
 import NavBar from "../Components/NavBar";
 
 const Review = () => {
-    return (
-        <div>
-            <Header />
-            <NavBar />
-            <GetAllReviews />
+  return (
+    <div>
+      <Header />
+      <NavBar />
+      <GetAllReviews />
+    </div>
+  );
+};
 
-        </div>
-    )
-}
-
-export default Review
+export default Review;

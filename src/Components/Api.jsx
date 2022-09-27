@@ -2,7 +2,6 @@ import axios from "axios";
 
 const gamesApi = axios.create({
   baseURL: "https://games-nc.herokuapp.com/api/",
-
 });
 
 export const FetchAllReviews = () => {
@@ -13,9 +12,9 @@ export const FetchAllReviews = () => {
 
 export const FetchAllCategories = () => {
   return gamesApi.get(`categories`).then((res) => {
-    return res.data
-  })
-}
+    return res.data;
+  });
+};
 
 export const FetchAllCategoryReviews = (category) => {
   return gamesApi.get(`reviews?category=${category}`).then((res) => {
@@ -24,6 +23,7 @@ export const FetchAllCategoryReviews = (category) => {
 };
 
 export const FetchSingleReview = (id) => {
-  return gamesApi.get(`reviews/${id}`).then((res) =>
-  {return res.data})
-}
+  return gamesApi.get(`reviews/${id}`).then((res) => {
+    return res.data;
+  });
+};
