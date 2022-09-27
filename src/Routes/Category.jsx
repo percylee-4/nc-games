@@ -1,17 +1,17 @@
 import React from "react";
-import GetAllCategories from "../Components/GetAllCategories";
+import GetCategoryReviews from "../Components/GetCategoryReviews";
 import Header from "../Components/Header";
 import NavBar from "../Components/NavBar";
 
-const Categories = () => {
+const Category = () => {
     return (
-        <div>
+        <div> 
             <Header />
             <NavBar />
-            <GetAllCategories />
+            <GetCategoryReviews />
 
         </div>
     )
 }
 
-export default Categories;
+export default Category;

@@ -3,7 +3,7 @@ import GetAllReviews from "../Components/GetAllReviews";
 import Header from "../Components/Header";
 import NavBar from "../Components/NavBar";
 
-const Reviews = () => {
+const Review = () => {
     return (
         <div>
             <Header />
@@ -14,4 +14,4 @@ const Reviews = () => {
     )
 }
 
-export default Reviews
+export default Review
