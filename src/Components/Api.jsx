@@ -4,10 +4,12 @@ const gamesApi = axios.create({
   baseURL: "https://games-nc.herokuapp.com/api/",
 });
 
-export const fetchAllReviews = () => {
-  return gamesApi.get("reviews").then((res) => {
-    return res.data;
-  });
+export const fetchAllReviews = (category) => {
+  return gamesApi
+    .get("reviews", { params: { category: category } })
+    .then((res) => {
+      return res.data;
+    });
 };
 
 export const fetchAllCategories = () => {
@@ -16,14 +18,12 @@ export const fetchAllCategories = () => {
   });
 };
 
-export const fetchAllCategoryReviews = (category) => {
-  return gamesApi.get(`reviews?category=${category}`).then((res) => {
-    return res.data;
-  });
-};
-
 export const fetchSingleReview = (id) => {
   return gamesApi.get(`reviews/${id}`).then((res) => {
     return res.data;
   });
+};
+
+export const patchVotes = (id, inc_votes) => {
+  return gamesApi.patch(`reviews/${id}`, { inc_votes: inc_votes });
 };

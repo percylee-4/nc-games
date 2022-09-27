@@ -1,23 +1,28 @@
 import React from "react";
 import { FaRegThumbsUp } from "react-icons/fa";
 import { useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { patchVotes } from "./Api";
 
 const ReviewCard = ({ review }) => {
   const [votes, setVotes] = useState(review.votes);
   const [err, setErr] = useState(null);
+  const voteCount = votes;
 
   const handleClick = () => {
-    setVotes((votes) => votes + 1);
-    return axios
-      .patch(`https://games-nc.herokuapp.com/api/reviews/${review.review_id}`, {
-        inc_votes: 1,
-      })
-      .catch((err) => {
+    if (voteCount === review.votes + 1) {
+      setVotes((votes) => votes - 1);
+      patchVotes(`${review.review_id}`, -1).catch((err) => {
         setVotes((votes) => votes - 1);
         setErr("oops, something went wrong. Please try again later");
       });
+    } else {
+      setVotes((votes) => votes + 1);
+      patchVotes(`${review.review_id}`, 1).catch((err) => {
+        setVotes((votes) => votes - 1);
+        setErr("oops, something went wrong. Please try again later");
+      });
+    }
   };
 
   if (err) {

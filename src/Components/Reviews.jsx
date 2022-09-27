@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { fetchAllReviews } from "./Api";
 import "../StyleSheets/GetAllReviews.css";
-import { Link } from "react-router-dom";
 import ReviewCard from "./ReviewCard";
 
 const GetAllReviews = () => {

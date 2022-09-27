@@ -11,7 +11,7 @@ const GetReview = () => {
     fetchSingleReview(id.review_id).then((data) => {
       setReview([data.review]);
     });
-  }, []);
+  }, [id.review_id]);
 
   return (
     <div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { fetchAllCategoryReviews } from "./Api";
+import { useParams } from "react-router-dom";
+import { fetchAllReviews } from "./Api";
 import "../StyleSheets/GetCategoryReviews.css";
 import ReviewCard from "./ReviewCard";
 
@@ -10,10 +10,8 @@ const GetCategoryReviews = () => {
   const category = useParams();
 
   useEffect(() => {
-    fetchAllCategoryReviews(category.slug).then((data) =>
-      setReviews(data.reviews)
-    );
-  }, []);
+    fetchAllReviews(category.slug).then((data) => setReviews(data.reviews));
+  }, [category.slug]);
 
   return (
     <div className="categoryreviews">
