@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { fetchAllReviews } from "./Api";
-import "../StyleSheets/GetAllReviews.css";
+import "../StyleSheets/Reviews.css";
 import ReviewCard from "./ReviewCard";
 
 const GetAllReviews = () => {

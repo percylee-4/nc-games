@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { fetchAllCategories } from "./Api";
-import "../StyleSheets/GetAllCategories.css";
+import "../StyleSheets/Categories.css";
 
 const GetAllCategories = () => {
   const [categories, setCategories] = useState([]);
@@ -12,9 +12,9 @@ const GetAllCategories = () => {
   useEffect(() => {
     fetchAllCategories().then((data) => {
       setIsLoading(false);
-      setCategories(data.categories);
-    }, []);
-  });
+      return setCategories(data.categories);
+    });
+  },[]);
 
   if (isLoading) {
     return <p>Loading</p>;

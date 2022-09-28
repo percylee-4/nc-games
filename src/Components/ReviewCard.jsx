@@ -3,6 +3,7 @@ import { FaRegThumbsUp } from "react-icons/fa";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { patchVotes } from "./Api";
+import CommentCard from "./CommentCard";
 
 const ReviewCard = ({ review }) => {
   const [votes, setVotes] = useState(review.votes);
@@ -37,9 +38,9 @@ const ReviewCard = ({ review }) => {
       </Link>
       <p> Comments: {review.comment_count} </p>
       <button onClick={handleClick}>
-        {" "}
-        <FaRegThumbsUp /> {votes}{" "}
+        <FaRegThumbsUp /> {votes}
       </button>
+      <CommentCard review_id={review.review_id} />
     </section>
   );
 };
