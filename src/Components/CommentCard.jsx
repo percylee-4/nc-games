@@ -3,44 +3,44 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { FaTimes } from "react-icons/fa";
+import { fetchReviewComments, postReviewComment } from "../Components/Api";
+import "../StyleSheets/CommentCard.css";
 
 const CommentCard = ({ review_id }) => {
   const [comments, setComments] = useState([]);
   const id = review_id;
   const [err, setErr] = useState(null);
+  const [value, setValue] = useState("");
 
   useEffect(() => {
-    axios
-      .get(`https://games-nc.herokuapp.com/api/reviews/${id}/comments`)
-      .then((res) => {
-        setComments(res.data.comments);
-      });
-  }, [id]);
+    fetchReviewComments(id).then((data) => {
+      setComments(data.comments);
+    });
+  }, [comments.length, id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let comment = e.target.firstElementChild.value;
+    let body = e.target.firstElementChild.value;
+    let username = "tickle122";
     let commentObj = {
-      body: comment,
+      body: "uploading comment",
       comment_id: Math.random(),
-      author: "tickle122",
     };
     setComments([commentObj, ...comments]);
-    document.getElementById("newcomment").value = "";
-
-    axios
-      .post(`https://games-nc.herokuapp.com/api/reviews/${id}/comments`, {
-        username: "tickle122",
-        body: comment,
-      })
-      .catch((err) => {
-        setErr("oops, We could not post that comment. Please try again later.");
-      });
+    setValue("");
+    postReviewComment(id, username, body).catch((err) => {
+      setErr("oops, We could not post that comment. Please try again later.");
+    });
   };
 
   const handleClick = (index, comment_id) => {
     setComments((currcomments) => {
-      currcomments.splice(index, 1);
+      currcomments.splice(
+        index,
+        1,
+        { body: "deleting comment", comment_id: Math.random() },
+        { body: "", comment_id: Math.random() }
+      );
       return [...currcomments];
     });
     axios
@@ -52,12 +52,16 @@ const CommentCard = ({ review_id }) => {
       });
   };
 
+  const handleUserInput = (e) => {
+    setValue(e.target.value);
+  };
+
   if (err) {
     return <p> {err} </p>;
   }
 
   return (
-    <div>
+    <div className="commentcard">
       <div>
         <form onSubmit={(e) => handleSubmit(e)}>
           <input
@@ -66,16 +70,18 @@ const CommentCard = ({ review_id }) => {
             id="newcomment"
             placeholder="Add your comment"
             required
+            value={value}
+            onChange={handleUserInput}
           />
           <button>Post Comment</button>
         </form>
       </div>
       <div>
-        <ul>
+        <ul className="commentlist">
           {comments.map((comment, index) => {
             if (comment.author === "tickle122") {
               return (
-                <li key={comment.comment_id}>
+                <li key={comment.comment_id} className="comment">
                   {comment.body}
                   <FaTimes
                     onClick={() => handleClick(index, comment.comment_id)}
@@ -83,7 +89,11 @@ const CommentCard = ({ review_id }) => {
                 </li>
               );
             } else {
-              return <li key={comment.comment_id}> {comment.body} </li>;
+              return (
+                <li className="comment" key={comment.comment_id}>
+                  {comment.body}
+                </li>
+              );
             }
           })}
         </ul>

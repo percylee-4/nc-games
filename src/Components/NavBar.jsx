@@ -1,19 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../StyleSheets/NavBar.css";
+import { BiCategory } from "react-icons/bi";
+import { MdOutlineComment } from "react-icons/md";
+import logo from "../Assets/NClogo copy.png";
 
 const NavBar = () => {
   return (
-    <div className="nav">
+    <section className="nav">
       <div className="nav-items">
-        <Link to="/Categories">
-          <h3> Categories </h3>
+        <Link to="/">
+          <img alt='North coders logo in red' src={logo} className="logo" />
         </Link>
-        <Link to="/Reviews">
-          <h3> Reviews </h3>
+        <Link to="/Categories" className="categories">
+          <BiCategory className="navicons" />
+          <h3 className="navheadings"> Categories </h3>
+        </Link>
+        <Link to="/Reviews" className="reviews">
+          <MdOutlineComment className="navicons" />
+          <h3 className="navheadings"> Reviews </h3>
         </Link>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -2,6 +2,11 @@
   display: flex;
   justify-content: center;
 }
+.categorypage {
+  width: 33%;
+  height: 100%;
+  justify-content: center;
+}
 
 .categorieslist {
   display: inline-flex;
@@ -13,5 +18,48 @@
 .category {
   text-align: center;
   margin: 20px;
+  justify-content: center;
+}
+.categoryheader {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.loadingcontainer {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+}
+
+.loading {
+  color: white;
+  font-size: 3rem;
+}
+
+.categorycard {
+  display: flex;
+  padding: 20px;
+  margin: 16px;
   margin-left: 0;
+
+  justify-content: center;
+  flex-wrap: wrap;
+  transition: 1s;
+  align-content: center;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.categorydescription {
+  color: rgb(151, 151, 151);
+  font-size: 1.2rem;
+}
+
+.categorycard:hover {
+  background-color: rgb(40, 40, 40);
+  transform: scale(103%);
 }

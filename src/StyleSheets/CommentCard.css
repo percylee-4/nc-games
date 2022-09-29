@@ -1,0 +1,12 @@
+.commentcard {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment {
+  color: white;
+  text-align: left;
+}
+.commentlist {
+  list-style-type: none;
+}

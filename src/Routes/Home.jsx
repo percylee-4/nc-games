@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "../Components/Header";
 import NavBar from "../Components/NavBar";
+import ProfileSection from "../Components/ProfileSection";
 
 const Home = () => {
   return (
     <div>
-      <Header />
       <NavBar />
+      <ProfileSection />
     </div>
   );
 };
