@@ -27,3 +27,13 @@ export const fetchSingleReview = (id) => {
 export const patchVotes = (id, inc_votes) => {
   return gamesApi.patch(`reviews/${id}`, { inc_votes: inc_votes });
 };
+
+export const fetchReviewComments = (id) => {
+  return gamesApi.get(`reviews/${id}/comments`).then((res) => {
+    return res.data;
+  });
+};
+
+export const postReviewComment = (id, username, body) => {
+  return gamesApi.post(`reviews/${id}/comments`, {username: username, body: body})
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { fetchAllReviews } from "./Api";
-import "../StyleSheets/GetAllReviews.css";
+import "../StyleSheets/Reviews.css";
 import ReviewCard from "./ReviewCard";
 
 const GetAllReviews = () => {
@@ -14,8 +14,13 @@ const GetAllReviews = () => {
       setReviews(data.reviews);
     });
   }, []);
+
   if (loading) {
-    return <p className="loading"> im loading pls wait </p>;
+    return (
+      <div className="loadingcontainer">
+        <p className="loading"> Loading...</p>
+      </div>
+    );
   }
   return (
     <div className="allreviewscontainer">

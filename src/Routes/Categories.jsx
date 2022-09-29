@@ -1,13 +1,13 @@
 import React from "react";
 import GetAllCategories from "../Components/Categories";
-import Header from "../Components/Header";
 import NavBar from "../Components/NavBar";
+import ProfileSection from "../Components/ProfileSection";
 
 const Categories = () => {
   return (
     <div>
-      <Header />
       <NavBar />
+      <ProfileSection />
       <GetAllCategories />
     </div>
   );

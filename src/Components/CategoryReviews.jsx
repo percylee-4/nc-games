@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchAllReviews } from "./Api";
-import "../StyleSheets/GetCategoryReviews.css";
+import "../StyleSheets/CategoryReviews.css";
 import ReviewCard from "./ReviewCard";
 
 const GetCategoryReviews = () => {
@@ -14,19 +14,17 @@ const GetCategoryReviews = () => {
   }, [category.slug]);
 
   return (
-    <div className="categoryreviews">
-      <h1 className="categoryheading">{category.slug} reviews</h1>
-      <div>
-        <ul className="categoryreviewslist">
-          {reviews.map((review, index) => {
-            return (
-              <li key={index}>
-                <ReviewCard review={review} />
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+    <div className="allreviewscontainer">
+      <ul className="allreviewslist">
+        <h1 className="categorytitle">{category.slug} reviews</h1>
+        {reviews.map((review) => {
+          return (
+            <li key={review.review_id} className="allreviewslistitems">
+              <ReviewCard review={review} />
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };

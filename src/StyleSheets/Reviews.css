@@ -1,0 +1,25 @@
+.allreviewscontainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  left: 50%;
+}
+
+.allreviewslist {
+  flex-direction: column;
+  list-style-type: none;
+  justify-content: center;
+  padding-left: 0;
+  width: 33%;
+  overflow: hidden;
+}
+
+.allreviewslistitems {
+  width: 100%;
+}
+
+@media screen and (max-width: 1250px) {
+  .allreviewslist .allreviewscontainer .allreviewslistitems {
+    flex-basis: 410px;
+  }
+}

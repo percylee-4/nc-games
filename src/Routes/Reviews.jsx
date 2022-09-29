@@ -1,13 +1,13 @@
 import React from "react";
 import GetAllReviews from "../Components/Reviews";
-import Header from "../Components/Header";
 import NavBar from "../Components/NavBar";
+import ProfileSection from "../Components/ProfileSection";
 
 const Review = () => {
   return (
     <div>
-      <Header />
       <NavBar />
+      <ProfileSection />
       <GetAllReviews />
     </div>
   );

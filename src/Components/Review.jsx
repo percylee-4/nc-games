@@ -14,8 +14,8 @@ const GetReview = () => {
   }, [id.review_id]);
 
   return (
-    <div>
-      <ul className="singlereview">
+    <div className="allreviewscontainer">
+      <ul className="allreviewslist">
         {review.map((review, index) => {
           return (
             <li className="allreviewslistitems" key={index}>

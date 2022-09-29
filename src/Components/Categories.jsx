@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { fetchAllCategories } from "./Api";
-import "../StyleSheets/GetAllCategories.css";
+import "../StyleSheets/Categories.css";
 
 const GetAllCategories = () => {
   const [categories, setCategories] = useState([]);
@@ -12,31 +12,36 @@ const GetAllCategories = () => {
   useEffect(() => {
     fetchAllCategories().then((data) => {
       setIsLoading(false);
-      setCategories(data.categories);
-    }, []);
-  });
+      return setCategories(data.categories);
+    });
+  }, []);
 
   if (isLoading) {
-    return <p>Loading</p>;
+    return (
+      <div className="loadingcontainer">
+        <p className="loading"> Loading...</p>
+      </div>
+    );
   }
 
   return (
     <div className="categorysection">
-      <ul className="categorieslist">
-        {categories.map((category, index) => {
-          return (
-            <Link
-              to={`/Categories/${category.slug}`}
-              key={index}
-              className="category"
-            >
-              <li>
-                {category.slug} <br /> {category.description}
-              </li>
-            </Link>
-          );
-        })}
-      </ul>
+      <section className="categorypage">
+        <ul className="categorieslist">
+          {categories.map((category, index) => {
+            return (
+              <section className="categorycard" key={index}>
+                <Link to={`/Categories/${category.slug}`} className="category">
+                  <li className="categoryheader"> {category.slug} </li>
+                  <li className="categorydescription">
+                    {category.description}
+                  </li>
+                </Link>
+              </section>
+            );
+          })}
+        </ul>
+      </section>
     </div>
   );
 };

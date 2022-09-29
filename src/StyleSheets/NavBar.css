@@ -1,13 +1,59 @@
 .nav {
+  position: fixed;
+  flex-shrink: 2;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
+  width: 33%;
+  justify-content: flex-end;
+  border-right: rgb(137, 135, 135) solid 1px;
 }
 
 .nav-items {
-  height: 100px;
-  width: 300px;
-  display: inline-flex;
-  justify-content: space-between;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: left;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.navheadings {
+  color: white;
   align-items: center;
+}
+.navicons {
+  color: white;
+  font-size: 4rem;
+  transition: transform 0.4s;
+}
+
+.categories {
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reviews {
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.8s;
+  justify-content: flex-start;
+}
+.navheadings {
+  font-size: 1.5rem;
+  padding-left: 15px;
+}
+
+.navicons:hover {
+  transform: scale(110%);
+}
+
+.logo {
+  height: 100px;
+  transition: transform 0.4s;
+}
+
+.logo:hover {
+  transform: scale(110%);
 }
